@@ -22,8 +22,6 @@ for episode in range(1,701):
         q_table[old_state,action]+=alpha*(reward+gamma*np.max(q_table[new_state])-q_table[old_state,action])
         reward_total+=reward
         old_state=new_state
-    if episode % 50 == 0:
-        print('Episode {} Total Reward: {}'.format(episode,reward_total))
 
 
 np.save('q_table.npy',np.array(q_table))
